@@ -1,25 +1,27 @@
 跟栈一样，队列可以用数组来实现，也可以用链表来实现。用数组实现的栈叫作顺序栈，用链表实现的栈叫作链式栈。
 同样，用数组实现的队列叫作顺序队列，用链表实现的队列叫作链式队列。
 
-// 用数组实现的队列
-public class ArrayQueue {
-  // 数组：items，数组大小：n
-  private String[] items;
-  private int n = 0;
-  // head 表示队头下标，tail 表示队尾下标
-  private int head = 0;
-  private int tail = 0;
+  // 用数组实现的队列
+  public class ArrayQueue {
+	
+  	// 数组：items，数组大小：n
+ 	 private String[] items;
+ 	 private int n = 0;
+ 	 // head 表示队头下标，tail 表示队尾下标
+  	private int head = 0;
+ 	 private int tail = 0;
  
-  // 申请一个大小为 capacity 的数组
-  public ArrayQueue(int capacity) {
-    items = new String[capacity];
-    n = capacity;
-  }
+ 	 // 申请一个大小为 capacity 的数组
+ 	 public ArrayQueue(int capacity) {
+ 	   items = new String[capacity];
+  	  n = capacity;
+ 	 }
  
- // 入队
+   // 入队
   public boolean enqueue(String item) {
-    // tail == n 表示队列末尾没有空间了
-    if (tail == n) {
+    
+		// tail == n 表示队列末尾没有空间了
+      if (tail == n) {
       // tail ==n && head==0，表示整个队列都占满了
       if (head == 0) return false;
       // 数据搬移
@@ -28,17 +30,17 @@ public class ArrayQueue {
       }
       // 搬移完之后重新更新 head 和 tail
       tail -= head;
-      head = 0;
-    }
-    
-   items[tail] = item;
-   ++tail;
-   return true;
+       head = 0;
+   		}
+    items[tail] = item;
+    ++tail;
+    return true;
   }
 
  
   // 出队
-  public String dequeue() {
+  	public String dequeue() {
+	
     // 如果 head == tail 表示队列为空
     if (head == tail) return null;
     // 为了让其他语言的同学看的更加明确，把 -- 操作放到单独一行来写了
