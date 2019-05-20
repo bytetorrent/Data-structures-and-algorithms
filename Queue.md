@@ -16,7 +16,7 @@ public class ArrayQueue {
     n = capacity;
   }
  
-  // 入队
+ // 入队
   public boolean enqueue(String item) {
     // tail == n 表示队列末尾没有空间了
     if (tail == n) {
@@ -31,9 +31,9 @@ public class ArrayQueue {
       head = 0;
     }
     
-    items[tail] = item;
-    ++tail;
-    return true;
+   items[tail] = item;
+   ++tail;
+   return true;
   }
 
  
