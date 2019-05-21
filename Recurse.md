@@ -16,26 +16,27 @@
 
 递归代码改写为非递归代码:
 
-int f(int n) {
-  if (n == 1) return 1;
-  if (n == 2) return 2;
-  return f(n-1) + f(n-2);
-}
+  int f(int n) {
+  
+    if (n == 1) return 1;
+    if (n == 2) return 2;
+    return f(n-1) + f(n-2);
+  }
 ----->
 
-int f(int n) {
-  if (n == 1) return 1;
-  if (n == 2) return 2;
-  
-  int ret = 0;
-  int pre = 2;
-  int prepre = 1;
-  for (int i = 3; i <= n; ++i) {
+  int f(int n) {
+ 
+    if (n == 1) return 1;
+    if (n == 2) return 2;
+    int ret = 0;
+    int pre = 2;
+    int prepre = 1;
+    for (int i = 3; i <= n; ++i) {
     ret = pre + prepre;
     prepre = pre;
     pre = ret;
-  }
-   return ret;
+    }
+    return ret;
 }
 
 那是不是所有的递归代码都可以改为这种迭代循环的非递归写法呢？
